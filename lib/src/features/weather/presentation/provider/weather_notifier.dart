@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:injectable/injectable.dart';
 import 'package:otoplus_example/src/common/base/base_notifier.dart';
 import 'package:otoplus_example/src/core/error/failure.dart';

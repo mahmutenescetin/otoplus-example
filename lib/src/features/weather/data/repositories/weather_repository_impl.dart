@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:otoplus_example/src/core/error/exceptions.dart';
 import 'package:otoplus_example/src/core/error/failure.dart';
@@ -35,7 +34,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
     } catch (e) {
       if (e.toString().contains('SocketException') || 
           e.toString().contains('NetworkException')) {
-        return Left(NetworkFailure(message: 'İnternet bağlantısı hatası'));
+        return const Left(NetworkFailure(message: 'İnternet bağlantısı hatası'));
       }
       return Left(UnknownFailure(message: 'Bilinmeyen bir hata oluştu: ${e.toString()}'));
     }

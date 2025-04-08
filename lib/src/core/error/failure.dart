@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+
 
 abstract class Failure {
   final String? message;
@@ -6,19 +6,19 @@ abstract class Failure {
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure({String? message}) : super(message: message);
+  const ServerFailure({super.message});
 }
 
 class NetworkFailure extends Failure {
-  const NetworkFailure({String? message}) : super(message: message);
+  const NetworkFailure({super.message});
 }
 
 class DataParsingFailure extends Failure {
-  const DataParsingFailure({String? message}) : super(message: message);
+  const DataParsingFailure({super.message});
 }
 
 class UnknownFailure extends Failure {
-  const UnknownFailure({String? message}) : super(message: message);
+  const UnknownFailure({super.message});
 }
 
 class CacheFailure extends Failure {}
