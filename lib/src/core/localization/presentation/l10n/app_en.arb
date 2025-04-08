@@ -1,0 +1,15 @@
+{
+  "appTitle": "Weather",
+  "welcomeTitle": "Weather",
+  "welcomeDescription": "Click start to view current weather information",
+  "startButton": "Start",
+  "temperature": "Temperature",
+  "humidity": "Humidity",
+  "windSpeed": "Wind Speed",
+  "condition": "Condition",
+  "location": "Location",
+  "errorUnknown": "An unknown error occurred",
+  "errorNetwork": "Network connection error",
+  "errorServer": "Server error",
+  "errorDataParsing": "Data parsing error"
+} 
