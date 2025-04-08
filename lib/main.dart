@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:otoplus_example/src/core/di/injection.dart';
 import 'package:otoplus_example/src/features/weather/presentation/routes/app_router.dart';
 
@@ -13,17 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final router = AppRouter();
-    
-    return CupertinoApp(
+    return MaterialApp(
       title: 'Hava Durumu',
-      debugShowCheckedModeBanner: false,
-      theme: const CupertinoThemeData(
-        brightness: Brightness.light,
-        primaryColor: CupertinoColors.systemBlue,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+        ),
       ),
-      initialRoute: router.initialRoute,
-      onGenerateRoute: router.generateRoute,
+      initialRoute: AppRouter.welcome,
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }

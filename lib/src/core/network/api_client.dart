@@ -14,7 +14,7 @@ class ApiClient {
       final response = await _client.get(
         Uri.parse(url),
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
           'Accept': 'application/json',
         },
       );
@@ -30,7 +30,7 @@ class ApiClient {
       final response = await _client.post(
         Uri.parse(url),
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
           'Accept': 'application/json',
         },
         body: body != null ? json.encode(body) : null,
@@ -44,7 +44,7 @@ class ApiClient {
 
   dynamic _handleResponse(http.Response response) {
     if (response.statusCode >= 200 && response.statusCode < 300) {
-      return json.decode(response.body);
+      return json.decode(utf8.decode(response.bodyBytes));
     } else {
       throw Exception('API Hatası: ${response.statusCode}');
     }
@@ -53,4 +53,4 @@ class ApiClient {
   void dispose() {
     _client.close();
   }
-} 
+}

@@ -1,53 +1,50 @@
-import 'package:flutter/cupertino.dart';
-import 'package:otoplus_example/src/features/weather/presentation/screens/home_view.dart';
+import 'package:flutter/material.dart';
+import 'package:otoplus_example/src/features/weather/presentation/screens/weather_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      backgroundColor: CupertinoColors.systemBackground,
-      child: SafeArea(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                CupertinoIcons.cloud_sun_fill,
-                size: 120,
-                color: CupertinoColors.systemBlue,
-              ),
+              const Icon(Icons.wb_sunny, size: 120, color: Colors.blue),
               const SizedBox(height: 40),
               const Text(
                 'Hava Durumu',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: CupertinoColors.systemBlue,
+                  color: Colors.blue,
                 ),
               ),
               const SizedBox(height: 16),
               const Text(
                 'Güncel hava durumu bilgilerini görüntülemek için başlayın',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: CupertinoColors.systemGrey,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
               const SizedBox(height: 40),
               SizedBox(
                 width: double.infinity,
-                child: CupertinoButton(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  color: CupertinoColors.systemBlue,
-                  borderRadius: BorderRadius.circular(12),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.of(context).push(
-                      CupertinoPageRoute(
-                        builder: (context) => const HomeView(),
+                      MaterialPageRoute(
+                        builder: (context) => const WeatherView(),
                       ),
                     );
                   },
@@ -56,6 +53,7 @@ class WelcomeScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -66,4 +64,4 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}

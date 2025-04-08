@@ -16,7 +16,9 @@ class WeatherNotifier extends ChangeNotifier {
   String? _errorMessage;
 
   bool get isLoading => _isLoading;
+
   WeatherEntity? get weather => _weather;
+
   String? get errorMessage => _errorMessage;
 
   Future<void> fetchWeather() async {
@@ -50,4 +52,4 @@ class WeatherNotifier extends ChangeNotifier {
         return 'Bilinmeyen bir hata oluştu.';
     }
   }
-} 
+}

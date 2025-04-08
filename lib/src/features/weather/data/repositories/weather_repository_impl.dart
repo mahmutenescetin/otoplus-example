@@ -29,4 +29,4 @@ class WeatherRepositoryImpl implements WeatherRepository {
       );
     }
   }
-} 
+}
