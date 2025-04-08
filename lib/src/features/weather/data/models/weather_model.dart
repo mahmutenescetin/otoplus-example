@@ -11,7 +11,7 @@ class WeatherModel extends WeatherEntity {
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
     final current = json['current'] as Map<String, dynamic>;
     final location = json['location'] as Map<String, dynamic>;
-    
+
     return WeatherModel(
       condition: current['condition']['text'] as String,
       temperature: (current['temp_c'] as num).toDouble(),
@@ -28,4 +28,4 @@ class WeatherModel extends WeatherEntity {
       'icon': icon,
     };
   }
-} 
+}

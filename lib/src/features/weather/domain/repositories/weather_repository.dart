@@ -4,4 +4,4 @@ import 'package:otoplus_example/src/features/weather/domain/entities/weather_ent
 
 abstract class WeatherRepository {
   Future<Either<Failure, WeatherEntity>> getWeather();
-} 
+}

@@ -19,11 +19,11 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   Future<WeatherModel> getWeather() async {
     try {
       final response = await _apiClient.get(
-        '$_baseUrl/forecast.json?key=$_apiKey&q=Istanbul&days=3&aqi=no&alerts=no&lang=tr'
+        '$_baseUrl/forecast.json?key=$_apiKey&q=Istanbul&days=3&aqi=no&alerts=no&lang=tr',
       );
       return WeatherModel.fromJson(response);
     } catch (e) {
       throw ServerException(message: e.toString());
     }
   }
-} 
+}

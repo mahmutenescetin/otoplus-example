@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otoplus_example/src/core/di/injection.dart';
 import 'package:otoplus_example/src/features/weather/presentation/provider/weather_notifier.dart';
@@ -68,8 +67,8 @@ class WeatherView extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Colors.blue.withOpacity(0.8),
-                      Colors.teal.withOpacity(0.6),
+                      const Color.fromRGBO(33, 150, 243, 0.8), // Colors.blue.withOpacity(0.8)
+                      const Color.fromRGBO(0, 150, 136, 0.6), // Colors.teal.withOpacity(0.6)
                     ],
                   ),
                 ),
@@ -94,7 +93,7 @@ class WeatherView extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
+                          color: const Color.fromRGBO(255, 255, 255, 0.2),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -120,7 +119,7 @@ class WeatherView extends StatelessWidget {
                                 vertical: 8,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.3),
+                                color: const Color.fromRGBO(255, 255, 255, 0.3),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
@@ -138,9 +137,9 @@ class WeatherView extends StatelessWidget {
                       Text(
                         'Son Güncelleme: ${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
-                          color: Colors.white.withOpacity(0.8),
+                          color: Color.fromRGBO(255, 255, 255, 0.8),
                         ),
                       ),
                       const SizedBox(height: 30),

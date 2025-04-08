@@ -15,4 +15,4 @@ class GetWeather implements UseCase<WeatherEntity, NoParams> {
   Future<Either<Failure, WeatherEntity>> call(NoParams params) async {
     return await repository.getWeather();
   }
-} 
+}
