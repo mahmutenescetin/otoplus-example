@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:otoplus_example/src/core/di/injection.dart';
-import 'package:otoplus_example/src/features/posts/presentation/routes/app_router.dart';
+import 'package:otoplus_example/src/features/weather/presentation/routes/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     final router = AppRouter();
     
     return CupertinoApp(
-      title: 'Clean Provider App',
+      title: 'Hava Durumu',
       debugShowCheckedModeBanner: false,
       theme: const CupertinoThemeData(
         brightness: Brightness.light,

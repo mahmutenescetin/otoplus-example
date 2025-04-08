@@ -12,13 +12,15 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../features/posts/data/datasources/remote/post_remote_data_source.dart'
-    as _i493;
-import '../../features/posts/data/repositories/post_repository_impl.dart'
-    as _i125;
-import '../../features/posts/domain/repositories/post_repository.dart' as _i450;
-import '../../features/posts/domain/usecases/get_posts.dart' as _i1032;
-import '../../features/posts/presentation/provider/posts_notifer.dart' as _i437;
+import '../../features/weather/data/datasources/remote/weather_remote_data_source.dart'
+    as _i235;
+import '../../features/weather/data/repositories/weather_repository_impl.dart'
+    as _i231;
+import '../../features/weather/domain/repositories/weather_repository.dart'
+    as _i956;
+import '../../features/weather/domain/usecases/get_weather.dart' as _i161;
+import '../../features/weather/presentation/provider/weather_notifier.dart'
+    as _i817;
 import '../network/api_client.dart' as _i557;
 
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -29,19 +31,19 @@ _i174.GetIt $initGetIt(
 }) {
   final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
   gh.lazySingleton<_i557.ApiClient>(() => _i557.ApiClient());
-  gh.lazySingleton<_i493.PostRemoteDataSource>(
-    () => _i493.PostRemoteDataSourceImpl(gh<_i557.ApiClient>()),
+  gh.lazySingleton<_i235.WeatherRemoteDataSource>(
+    () => _i235.WeatherRemoteDataSourceImpl(gh<_i557.ApiClient>()),
   );
-  gh.lazySingleton<_i450.PostRepository>(
-    () => _i125.PostRepositoryImpl(
-      remoteDataSource: gh<_i493.PostRemoteDataSource>(),
+  gh.lazySingleton<_i956.WeatherRepository>(
+    () => _i231.WeatherRepositoryImpl(
+      remoteDataSource: gh<_i235.WeatherRemoteDataSource>(),
     ),
   );
-  gh.lazySingleton<_i1032.GetPosts>(
-    () => _i1032.GetPosts(gh<_i450.PostRepository>()),
+  gh.lazySingleton<_i161.GetWeather>(
+    () => _i161.GetWeather(gh<_i956.WeatherRepository>()),
   );
-  gh.factory<_i437.PostsNotifier>(
-    () => _i437.PostsNotifier(getPostsUseCase: gh<_i1032.GetPosts>()),
+  gh.factory<_i817.WeatherNotifier>(
+    () => _i817.WeatherNotifier(getWeatherUseCase: gh<_i161.GetWeather>()),
   );
   return getIt;
 }

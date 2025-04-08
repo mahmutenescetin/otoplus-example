@@ -5,17 +5,14 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 class ApiClient {
   final http.Client _client;
-  final String _baseUrl;
 
   @factoryMethod
-  ApiClient()
-      : _client = http.Client(),
-        _baseUrl = 'https://jsonplaceholder.typicode.com';
+  ApiClient() : _client = http.Client();
 
-  Future<dynamic> get(String endpoint) async {
+  Future<dynamic> get(String url) async {
     try {
       final response = await _client.get(
-        Uri.parse('$_baseUrl$endpoint'),
+        Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -28,10 +25,10 @@ class ApiClient {
     }
   }
 
-  Future<dynamic> post(String endpoint, {Map<String, dynamic>? body}) async {
+  Future<dynamic> post(String url, {Map<String, dynamic>? body}) async {
     try {
       final response = await _client.post(
-        Uri.parse('$_baseUrl$endpoint'),
+        Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
