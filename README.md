@@ -1,42 +1,42 @@
-# Hava Durumu Uygulaması
+# Weather Application
 
-Bu Flutter uygulaması, kullanıcılara güncel hava durumu bilgilerini gösteren modern ve kullanıcı dostu bir arayüz sunar.
+This Flutter application provides users with a modern and user-friendly interface to display current weather information.
 
-## Özellikler
+## Features
 
-- 🌍 Gerçek zamanlı hava durumu bilgileri
-- 🌡️ Sıcaklık gösterimi
-- ☁️ Hava durumu ikonları
-- 🔄 Yenileme özelliği
-- 🎨 Modern ve şık arayüz
-- 📱 Responsive tasarım
+- 🌍 Real-time weather information
+- 🌡️ Temperature display
+- ☁️ Weather icons
+- 🔄 Refresh functionality
+- 🎨 Modern and elegant interface
+- 📱 Responsive design
 
-## Teknolojiler
+## Technologies
 
 - Flutter
 - Provider (State Management)
 - GetIt (Dependency Injection)
-- HTTP (API İstekleri)
+- HTTP (API Requests)
 - Material Design
 
-## Kurulum
+## Installation
 
-1. Flutter'ı yükleyin:
+1. Install Flutter:
 ```bash
 flutter pub get
 ```
 
-2. Bağımlılıkları yükleyin:
+2. Install dependencies:
 ```bash
 flutter pub get
 ```
 
-3. Uygulamayı çalıştırın:
+3. Run the application:
 ```bash
 flutter run
 ```
 
-## Proje Yapısı
+## Project Structure
 
 ```
 lib/
@@ -73,19 +73,19 @@ lib/
 └── main.dart
 ```
 
-## Mimari
+## Architecture
 
-Bu proje Clean Architecture prensiplerine uygun olarak geliştirilmiştir:
+This project is developed following Clean Architecture principles:
 
-- **Presentation Layer**: UI bileşenleri ve state management
-- **Domain Layer**: İş mantığı ve entity'ler
-- **Data Layer**: Veri kaynakları ve repository implementasyonları
+- **Presentation Layer**: UI components and state management
+- **Domain Layer**: Business logic and entities
+- **Data Layer**: Data sources and repository implementations
 
-## Katkıda Bulunma
+## Contributing
 
-1. Bu repository'yi fork edin
-2. Feature branch'i oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'feat: Add some amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
