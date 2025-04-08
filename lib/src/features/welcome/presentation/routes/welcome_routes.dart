@@ -5,6 +5,7 @@ enum WelcomeRoutes {
   welcome('/');
 
   final String path;
+
   const WelcomeRoutes(this.path);
 }
 
@@ -15,12 +16,13 @@ extension WelcomeRoutesExtension on WelcomeRoutes {
         return MaterialPageRoute(builder: (_) => const WelcomeScreen());
       default:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text('Welcome route bulunamadı: ${settings.name}'),
-            ),
-          ),
+          builder:
+              (_) => Scaffold(
+                body: Center(
+                  child: Text('Welcome route bulunamadı: ${settings.name}'),
+                ),
+              ),
         );
     }
   }
-} 
+}

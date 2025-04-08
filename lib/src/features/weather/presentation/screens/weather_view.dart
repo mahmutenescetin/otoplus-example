@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otoplus_example/src/core/di/injection.dart';
+import 'package:otoplus_example/src/core/localization/presentation/extensions/context_extension.dart';
 import 'package:otoplus_example/src/features/weather/presentation/provider/weather_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -12,18 +13,16 @@ class WeatherView extends StatelessWidget {
       create: (_) => getIt<WeatherNotifier>()..fetchWeather(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Hava Durumu'),
+          title: Text(context.l10n.appTitle),
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
         body: Consumer<WeatherNotifier>(
           builder: (context, notifier, child) {
-            if (notifier.isLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
+            Widget content;
 
             if (notifier.error != null) {
-              return Center(
+              content = Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -34,7 +33,7 @@ class WeatherView extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Hata: ${notifier.error}',
+                      '${context.l10n.errorUnknown}: ${notifier.error}',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: Colors.red, fontSize: 16),
                     ),
@@ -49,25 +48,28 @@ class WeatherView extends StatelessWidget {
                           vertical: 12,
                         ),
                       ),
-                      child: const Text('Tekrar Dene'),
+                      child: Text(context.l10n.startButton),
                     ),
                   ],
                 ),
               );
-            }
-
-            final weather = notifier.weather;
-            if (weather != null) {
-              return Container(
+            } else if (notifier.weather == null) {
+              content = Center(
+                child: Text(
+                  context.l10n.errorUnknown,
+                  style: const TextStyle(fontSize: 16),
+                ),
+              );
+            } else {
+              final weather = notifier.weather!;
+              content = Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
                       Color.fromRGBO(33, 150, 243, 0.8),
-                      // Colors.blue.withOpacity(0.8)
                       Color.fromRGBO(0, 150, 136, 0.6),
-                      // Colors.teal.withOpacity(0.6)
                     ],
                   ),
                 ),
@@ -134,6 +136,24 @@ class WeatherView extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       Text(
+                        '${context.l10n.humidity}: ${weather.humidity}%',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        '${context.l10n.windSpeed}: ${weather.windSpeed} km/h',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      Text(
                         'Son Güncelleme: ${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')}',
                         textAlign: TextAlign.center,
                         style: const TextStyle(
@@ -148,11 +168,12 @@ class WeatherView extends StatelessWidget {
               );
             }
 
-            return const Center(
-              child: Text(
-                'Hava durumu bilgisi alınamadı.',
-                style: TextStyle(fontSize: 16),
-              ),
+            return Stack(
+              children: [
+                content,
+                if (notifier.isLoading)
+                  const Center(child: CircularProgressIndicator()),
+              ],
             );
           },
         ),

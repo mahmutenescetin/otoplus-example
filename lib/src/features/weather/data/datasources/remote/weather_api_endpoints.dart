@@ -2,6 +2,7 @@ enum WeatherApiEndpoints {
   forecast('/forecast.json');
 
   final String path;
+
   const WeatherApiEndpoints(this.path);
 
   String buildUrl({
@@ -28,4 +29,4 @@ enum WeatherApiEndpoints {
 
     return '$baseUrl$path?$queryString';
   }
-} 
+}

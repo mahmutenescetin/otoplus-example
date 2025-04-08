@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:otoplus_example/src/core/localization/presentation/extensions/context_extension.dart';
 import 'package:otoplus_example/src/features/weather/presentation/screens/weather_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -16,19 +17,19 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               const Icon(Icons.wb_sunny, size: 120, color: Colors.blue),
               const SizedBox(height: 40),
-              const Text(
-                'Hava Durumu',
-                style: TextStyle(
+              Text(
+                context.l10n.welcomeTitle,
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Güncel hava durumu bilgilerini görüntülemek için başlayın',
+              Text(
+                context.l10n.welcomeDescription,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, color: Colors.grey),
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
               ),
               const SizedBox(height: 40),
               SizedBox(
@@ -48,9 +49,9 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text(
-                    'Başla',
-                    style: TextStyle(
+                  child: Text(
+                    context.l10n.startButton,
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
