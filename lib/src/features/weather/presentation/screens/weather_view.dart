@@ -36,10 +36,7 @@ class WeatherView extends StatelessWidget {
                     Text(
                       'Hata: ${notifier.errorMessage}',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 16,
-                      ),
+                      style: const TextStyle(color: Colors.red, fontSize: 16),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
@@ -62,13 +59,15 @@ class WeatherView extends StatelessWidget {
             final weather = notifier.weather;
             if (weather != null) {
               return Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      const Color.fromRGBO(33, 150, 243, 0.8), // Colors.blue.withOpacity(0.8)
-                      const Color.fromRGBO(0, 150, 136, 0.6), // Colors.teal.withOpacity(0.6)
+                      Color.fromRGBO(33, 150, 243, 0.8),
+                      // Colors.blue.withOpacity(0.8)
+                      Color.fromRGBO(0, 150, 136, 0.6),
+                      // Colors.teal.withOpacity(0.6)
                     ],
                   ),
                 ),
@@ -160,4 +159,4 @@ class WeatherView extends StatelessWidget {
       ),
     );
   }
-} 
+}
