@@ -19,6 +19,7 @@ import '../../features/posts/data/repositories/post_repository_impl.dart'
 import '../../features/posts/domain/repositories/post_repository.dart' as _i450;
 import '../../features/posts/domain/usecases/get_posts.dart' as _i1032;
 import '../../features/posts/presentation/provider/posts_notifer.dart' as _i437;
+import '../network/api_client.dart' as _i557;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i174.GetIt $initGetIt(
@@ -27,8 +28,9 @@ _i174.GetIt $initGetIt(
   _i526.EnvironmentFilter? environmentFilter,
 }) {
   final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
+  gh.lazySingleton<_i557.ApiClient>(() => _i557.ApiClient());
   gh.lazySingleton<_i493.PostRemoteDataSource>(
-    () => _i493.PostRemoteDataSourceImpl(),
+    () => _i493.PostRemoteDataSourceImpl(gh<_i557.ApiClient>()),
   );
   gh.lazySingleton<_i450.PostRepository>(
     () => _i125.PostRepositoryImpl(
