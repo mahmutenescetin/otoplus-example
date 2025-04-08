@@ -1,18 +1,17 @@
-import 'package:equatable/equatable.dart';
-
-class WeatherEntity extends Equatable {
-  final String condition;
+class WeatherEntity {
+  final String location;
   final double temperature;
-  final String city;
+  final String condition;
   final String icon;
+  final double windSpeed;
+  final int humidity;
 
-  const WeatherEntity({
-    required this.condition,
+  WeatherEntity({
+    required this.location,
     required this.temperature,
-    required this.city,
+    required this.condition,
     required this.icon,
+    required this.windSpeed,
+    required this.humidity,
   });
-
-  @override
-  List<Object?> get props => [condition, temperature, city, icon];
 }

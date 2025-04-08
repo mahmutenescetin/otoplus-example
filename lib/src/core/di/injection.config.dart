@@ -35,9 +35,7 @@ _i174.GetIt $initGetIt(
     () => _i235.WeatherRemoteDataSourceImpl(gh<_i557.ApiClient>()),
   );
   gh.lazySingleton<_i956.WeatherRepository>(
-    () => _i231.WeatherRepositoryImpl(
-      remoteDataSource: gh<_i235.WeatherRemoteDataSource>(),
-    ),
+    () => _i231.WeatherRepositoryImpl(gh<_i235.WeatherRemoteDataSource>()),
   );
   gh.lazySingleton<_i161.GetWeather>(
     () => _i161.GetWeather(gh<_i956.WeatherRepository>()),

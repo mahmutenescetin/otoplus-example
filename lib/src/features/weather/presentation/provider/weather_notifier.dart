@@ -1,44 +1,31 @@
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:otoplus_example/src/common/base/base_notifier.dart';
 import 'package:otoplus_example/src/core/error/failure.dart';
 import 'package:otoplus_example/src/core/usecase/usecase.dart';
 import 'package:otoplus_example/src/features/weather/domain/entities/weather_entity.dart';
 import 'package:otoplus_example/src/features/weather/domain/usecases/get_weather.dart';
 
 @injectable
-class WeatherNotifier extends ChangeNotifier {
+class WeatherNotifier extends BaseNotifier {
   final GetWeather getWeatherUseCase;
+  WeatherEntity? _weather;
 
   WeatherNotifier({required this.getWeatherUseCase});
 
-  bool _isLoading = false;
-  WeatherEntity? _weather;
-  String? _errorMessage;
-
-  bool get isLoading => _isLoading;
-
   WeatherEntity? get weather => _weather;
 
-  String? get errorMessage => _errorMessage;
-
   Future<void> fetchWeather() async {
-    _isLoading = true;
-    _errorMessage = null;
-    notifyListeners();
-
-    final failureOrWeather = await getWeatherUseCase(NoParams());
-
-    failureOrWeather.fold(
-      (failure) {
-        _errorMessage = _mapFailureToMessage(failure);
-      },
-      (weatherData) {
-        _weather = weatherData;
-      },
-    );
-
-    _isLoading = false;
-    notifyListeners();
+    await handleAsync(() async {
+      final result = await getWeatherUseCase(NoParams());
+      return result.fold(
+        (failure) => throw _mapFailureToMessage(failure),
+        (weather) {
+          _weather = weather;
+          return weather;
+        },
+      );
+    });
   }
 
   String _mapFailureToMessage(Failure failure) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:otoplus_example/src/common/routes/app_router.dart';
 import 'package:otoplus_example/src/core/di/injection.dart';
-import 'package:otoplus_example/src/features/weather/presentation/routes/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      initialRoute: AppRouter.welcome,
+      initialRoute: AppRouter().initialRoute,
       onGenerateRoute: AppRouter.generateRoute,
     );
   }

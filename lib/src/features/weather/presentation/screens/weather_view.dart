@@ -22,7 +22,7 @@ class WeatherView extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
 
-            if (notifier.errorMessage != null) {
+            if (notifier.error != null) {
               return Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,7 @@ class WeatherView extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Hata: ${notifier.errorMessage}',
+                      'Hata: ${notifier.error}',
                       textAlign: TextAlign.center,
                       style: const TextStyle(color: Colors.red, fontSize: 16),
                     ),
@@ -80,7 +80,7 @@ class WeatherView extends StatelessWidget {
                     children: [
                       const SizedBox(height: 30),
                       Text(
-                        weather.city,
+                        weather.location,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 32,

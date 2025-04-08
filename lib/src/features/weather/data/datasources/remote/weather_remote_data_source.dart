@@ -1,10 +1,11 @@
 import 'package:injectable/injectable.dart';
 import 'package:otoplus_example/src/core/error/exceptions.dart';
 import 'package:otoplus_example/src/core/network/api_client.dart';
-import 'package:otoplus_example/src/features/weather/data/models/weather_model.dart';
+import 'package:otoplus_example/src/features/weather/data/datasources/remote/weather_api_endpoints.dart';
+import 'package:otoplus_example/src/features/weather/data/models/weather_response_model.dart';
 
 abstract class WeatherRemoteDataSource {
-  Future<WeatherModel> getWeather();
+  Future<WeatherResponseModel> getWeather();
 }
 
 @LazySingleton(as: WeatherRemoteDataSource)
@@ -16,12 +17,15 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   WeatherRemoteDataSourceImpl(this._apiClient);
 
   @override
-  Future<WeatherModel> getWeather() async {
+  Future<WeatherResponseModel> getWeather() async {
     try {
-      final response = await _apiClient.get(
-        '$_baseUrl/forecast.json?key=$_apiKey&q=Istanbul&days=3&aqi=no&alerts=no&lang=tr',
+      final url = WeatherApiEndpoints.forecast.buildUrl(
+        apiKey: _apiKey,
+        baseUrl: _baseUrl,
       );
-      return WeatherModel.fromJson(response);
+      
+      final response = await _apiClient.get(url);
+      return WeatherResponseModel.fromJson(response);
     } catch (e) {
       throw ServerException(message: e.toString());
     }
