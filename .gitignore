@@ -33,6 +33,10 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Generated files
+lib/src/core/di/generated/
+.dart_tool/flutter_gen/
+
 # Symbolication related
 app.*.symbols
 
@@ -43,9 +47,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# Flutter localization generated files
-.dart_tool/flutter_gen/gen_l10n/
 
 # Generated dependency injection file
 lib/src/core/di/injection.config.dart
