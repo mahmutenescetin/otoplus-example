@@ -9,7 +9,7 @@ This Flutter application provides users with a modern and user-friendly interfac
 - ☁️ Weather icons
 - 🔄 Refresh functionality
 - 🎨 Modern and elegant interface
-- �� Responsive design
+- 📱 Responsive design
 - 🌐 Multi-language support (TR/EN)
 
 ## Technologies
@@ -33,9 +33,13 @@ flutter pub get
 flutter pub get
 ```
 
-3. Generate localization files:
+3. Generate files:
 ```bash
+# Generate localization files
 flutter gen-l10n
+
+# Generate dependency injection files
+flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
 4. Run the application:
@@ -50,7 +54,9 @@ lib/
 ├── src/
 │   ├── core/
 │   │   ├── di/
-│   │   │   └── injection.dart
+│   │   │   ├── injection.dart
+│   │   │   └── generated/
+│   │   │       └── injectable.config.dart
 │   │   ├── localization/
 │   │   │   └── presentation/
 │   │   │       └── l10n/
@@ -84,6 +90,14 @@ lib/
 │                   └── weather_view.dart
 └── main.dart
 ```
+
+## Generated Files
+
+The project uses code generation for:
+- **Localization**: Generated files are in `.dart_tool/flutter_gen/gen_l10n/`
+- **Dependency Injection**: Generated files are in `lib/src/core/di/generated/`
+
+These generated files should not be committed to version control. They are automatically generated when running the respective commands.
 
 ## Architecture
 
