@@ -149,7 +149,9 @@ class WeatherView extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
                       Text(
-                        'Son Güncelleme: ${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')}',
+                        context.l10n.lastUpdate(
+                          '${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')}'
+                        ),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 14,

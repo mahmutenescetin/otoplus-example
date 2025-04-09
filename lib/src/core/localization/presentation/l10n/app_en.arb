@@ -11,5 +11,14 @@
   "errorUnknown": "An unknown error occurred",
   "errorNetwork": "Network connection error",
   "errorServer": "Server error",
-  "errorDataParsing": "Data parsing error"
+  "errorDataParsing": "Data parsing error",
+  "lastUpdate": "Last Update: {time}",
+  "@lastUpdate": {
+    "description": "Last update time of weather data",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  }
 } 
