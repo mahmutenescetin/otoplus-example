@@ -43,3 +43,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flutter localization generated files
+.dart_tool/flutter_gen/gen_l10n/
+
+# Generated dependency injection file
+lib/src/core/di/injection.config.dart
+
+

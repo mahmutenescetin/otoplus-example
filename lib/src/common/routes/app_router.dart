@@ -6,10 +6,6 @@ class AppRouter {
   String get initialRoute => WelcomeRoutes.welcome.path;
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    if (settings.name == WelcomeRoutes.welcome.path) {
-      return WelcomeRoutesExtension.generateRoute(settings);
-    }
-
     if (settings.name?.startsWith(WeatherRoutes.weather.path) ?? false) {
       return WeatherRoutesExtension.generateRoute(settings);
     }
