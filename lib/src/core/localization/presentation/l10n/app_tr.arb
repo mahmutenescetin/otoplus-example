@@ -1,7 +1,7 @@
 {
   "appTitle": "Hava Durumu",
   "welcomeTitle": "Hava Durumu",
-  "welcomeDescription": "Mevcut hava durumu bilgilerini görmek için başla'ya tıklayın",
+  "welcomeDescription": "Güncel hava durumu bilgilerini görüntülemek için başlayın",
   "startButton": "Başla",
   "temperature": "Sıcaklık",
   "humidity": "Nem",
@@ -9,12 +9,12 @@
   "condition": "Durum",
   "location": "Konum",
   "errorUnknown": "Bilinmeyen bir hata oluştu",
-  "errorNetwork": "İnternet bağlantı hatası",
+  "errorNetwork": "İnternet bağlantısı hatası",
   "errorServer": "Sunucu hatası",
   "errorDataParsing": "Veri dönüşüm hatası",
   "lastUpdate": "Son Güncelleme: {time}",
   "@lastUpdate": {
-    "description": "Hava durumu verilerinin son güncelleme zamanı",
+    "description": "Hava durumu verilerinin son güncellenme zamanı",
     "placeholders": {
       "time": {
         "type": "String"

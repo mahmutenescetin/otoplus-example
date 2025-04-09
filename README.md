@@ -9,7 +9,8 @@ This Flutter application provides users with a modern and user-friendly interfac
 - ☁️ Weather icons
 - 🔄 Refresh functionality
 - 🎨 Modern and elegant interface
-- 📱 Responsive design
+- �� Responsive design
+- 🌐 Multi-language support (TR/EN)
 
 ## Technologies
 
@@ -18,6 +19,7 @@ This Flutter application provides users with a modern and user-friendly interfac
 - GetIt (Dependency Injection)
 - HTTP (API Requests)
 - Material Design
+- Flutter Localizations
 
 ## Installation
 
@@ -31,7 +33,12 @@ flutter pub get
 flutter pub get
 ```
 
-3. Run the application:
+3. Generate localization files:
+```bash
+flutter gen-l10n
+```
+
+4. Run the application:
 ```bash
 flutter run
 ```
@@ -44,6 +51,11 @@ lib/
 │   ├── core/
 │   │   ├── di/
 │   │   │   └── injection.dart
+│   │   ├── localization/
+│   │   │   └── presentation/
+│   │   │       └── l10n/
+│   │   │           ├── app_en.arb
+│   │   │           └── app_tr.arb
 │   │   └── network/
 │   │       └── api_client.dart
 │   └── features/
@@ -80,6 +92,14 @@ This project is developed following Clean Architecture principles:
 - **Presentation Layer**: UI components and state management
 - **Domain Layer**: Business logic and entities
 - **Data Layer**: Data sources and repository implementations
+
+## Localization
+
+The application supports multiple languages (Turkish and English). To add new translations:
+
+1. Add new strings to `lib/src/core/localization/presentation/l10n/app_en.arb`
+2. Add corresponding translations to `lib/src/core/localization/presentation/l10n/app_tr.arb`
+3. Run `flutter gen-l10n` to generate the localization files
 
 ## Contributing
 
