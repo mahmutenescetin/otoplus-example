@@ -54,12 +54,7 @@ class WeatherView extends StatelessWidget {
                 ),
               );
             } else if (notifier.weather == null) {
-              content = Center(
-                child: Text(
-                  context.l10n.errorUnknown,
-                  style: const TextStyle(fontSize: 16),
-                ),
-              );
+              content = const SizedBox.shrink();
             } else {
               final weather = notifier.weather!;
               content = Container(
